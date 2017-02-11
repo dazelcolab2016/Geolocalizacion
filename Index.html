@@ -6,6 +6,7 @@
 <body>
     <button onclick="findMe()">Mostrar Ubicacion</button>
     <div id="map"> </div>
+    <script scr="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBsCPbC8OMDK6wM9vWLdOVpIG71AatYfY"></script>
     <script>
         function findMe()
         {
@@ -21,9 +22,14 @@
             function localizacion (posicion)
             {
                 var latitude = posicion.coords.latitude;
-                var longitud = posicion.coords.longitude;
+                var longitude = posicion.coords.longitude;
                 
-                output.innerHTML = "<p>Latitud:"+latitude+"<br>Longitud:"+longitud+"</p>";
+                
+                var imgURL = "https://maps.googleapis.com/maps/api/staticmap?center="+latitude+","+longitude+"&size=700x500&markers=color:red%7C"+latitude+","+longitude+"&key=AIzaSyDBsCPbC8OMDK6wM9vWLdOVpIG71AatYfY";
+                
+                output.innerHTML="<img src='"+imgURL+"'>";
+                
+                //output.innerHTML = "<p>Latitud:"+latitude+"<br>Longitud:"+longitude+"</p>";
             }
             
             function error(){
